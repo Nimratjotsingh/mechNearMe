@@ -5,3 +5,6 @@ exports.homepage = (req, res) => {
 exports.howItWorks= (req,res)=>{
     res.render('howitworks.ejs');
 }
+exports.aboutPage = (req, res) => {
+    res.render('about.ejs');
+}

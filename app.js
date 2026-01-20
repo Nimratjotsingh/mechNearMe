@@ -6,6 +6,8 @@ app.use(express.static('public'));
 
 app.use(require('./routes/normalpage.routes'));
 
+app.use(require('./routes/auth.routes'));
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

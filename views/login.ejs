@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | MechNearMe</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2 class="logo">Mech<span>NearMe</span></h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/howitworks">How It Works</a></li>
+        <li><a href="/login" class="active">Login</a></li>
+    </ul>
+</nav>
+
+<!-- LOGIN CONTAINER -->
+<section class="login-container">
+    <div class="login-box">
+        <h1>Welcome Back</h1>
+        <p>Login to get instant mechanic help near you</p>
+
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="login-links">
+            <a href="#">Forgot Password?</a>
+            <a href="/register">Create Account</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 MechNearMe | Secure & Reliable Assistance</p>
+</footer>
+
+</body>
+</html>
