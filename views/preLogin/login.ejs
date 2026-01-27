@@ -9,14 +9,7 @@
 <body>
 
 <!-- NAVBAR -->
-<nav>
-    <h2 class="logo">Mech<span>NearMe</span></h2>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/howitworks">How It Works</a></li>
-        <li><a href="/login" class="active">Login</a></li>
-    </ul>
-</nav>
+<%- include('../common/navbar.ejs') %>
 
 <!-- LOGIN CONTAINER -->
 <section class="login-container">
@@ -50,5 +43,16 @@
     <p>© 2026 MechNearMe | Secure & Reliable Assistance</p>
 </footer>
 
+<div id="overlay" class="overlay hidden">
+    <div class="spinner"></div>
+    <p>Authenticating...</p>
+</div>
+
+
 </body>
+<script>
+    document.querySelector("form").addEventListener("submit", () => {
+        document.getElementById("overlay").classList.remove("hidden");
+    });
+</script>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | MechNearMe</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<%- include('../common/navbar.ejs') %>
+
+<!-- DASHBOARD CONTAINER -->
+<section class="dashboard">
+
+    <h1>Welcome, <%= user.name %> 👋</h1>
+    <p class="subtitle">Manage your vehicles and get instant help when needed</p>
+
+    <!-- QUICK ACTIONS -->
+    <div class="quick-actions">
+        <div class="card">
+            <h3>➕ Add Vehicle</h3>
+            <p>Save your car or bike for easy service access</p>
+            <button disabled>Coming Soon</button>
+        </div>
+
+        <div class="card">
+            <h3>🔧 Request Repair</h3>
+            <p>Breakdown? Get mechanic help instantly</p>
+            <button disabled>Coming Soon</button>
+        </div>
+
+        <div class="card">
+            <h3>🛠️ Schedule Service</h3>
+            <p>Plan regular servicing for your vehicle</p>
+            <button disabled>Coming Soon</button>
+        </div>
+    </div>
+
+    <!-- VEHICLE SECTION -->
+    <div class="vehicles">
+        <h2>Your Vehicles</h2>
+        <p class="empty-state">You haven’t added any vehicles yet.</p>
+    </div>
+
+</section>
+
+</body>
+</html>

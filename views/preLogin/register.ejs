@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | MechNearMe</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2 class="logo">Mech<span>NearMe</span></h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/howitworks">How It Works</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register" class="active">Register</a></li>
+    </ul>
+</nav>
+
+<!-- REGISTER SECTION -->
+<section class="register-container">
+    <div class="register-box">
+        <h1>Create Account</h1>
+        <p>Join MechNearMe and get help whenever you need it</p>
+
+        <form action="/register" method="POST">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Mobile Number</label>
+                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Create a strong password" required>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Re-enter password" required>
+            </div>
+
+            <div class="terms">
+                <input type="checkbox" required>
+                <span>I agree to the <a href="#">Terms & Conditions</a></span>
+            </div>
+
+            <button type="submit" class="register-btn">Create Account</button>
+        </form>
+
+        <p class="login-redirect">
+            Already have an account?
+            <a href="/login">Login here</a>
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 MechNearMe | Your Safety, Our Priority</p>
+</footer>
+
+
+<div id="overlay" class="overlay hidden">
+    <div class="spinner"></div>
+    <p>Authenticating...</p>
+</div>
+
+</body>
+<script>
+    document.querySelector("form").addEventListener("submit", () => {
+        document.getElementById("overlay").classList.remove("hidden");
+    });
+</script>
+</html>

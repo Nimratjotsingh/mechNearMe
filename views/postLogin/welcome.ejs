@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome | MechNearMe</title>
+    <link rel="stylesheet" href="/css/welcome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<%- include('../common/navbar.ejs') %>
+
+<section class="welcome-wrapper">
+    <div class="welcome-card">
+
+        <div class="icon-bubble">
+            🚗
+        </div>
+
+        <h1>
+            Welcome, <span><%= user.name %></span>
+        </h1>
+
+        <p class="subtitle">
+            We’re glad you’re here.
+            <br>
+            <strong>MechNearMe</strong> is built to help you when your vehicle needs care —
+            whether it’s routine service or an unexpected breakdown.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                ✨ Let’s start by adding your first vehicle.
+                <br>
+                This helps us give you faster service, reminders,
+                and emergency assistance when it matters.
+            </p>
+        </div>
+
+        <div class="actions">
+            <a href="/add-vehicle" class="btn primary">
+                ➕ Add Your First Vehicle
+            </a>
+
+            <a href="/dashboard" class="btn ghost">
+                I’ll do this later
+            </a>
+        </div>
+
+        <p class="hint">
+            You can add multiple vehicles anytime from your dashboard.
+        </p>
+
+    </div>
+</section>
+
+</body>
+</html>

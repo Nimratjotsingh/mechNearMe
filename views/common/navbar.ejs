@@ -1,9 +1,28 @@
+<link rel="stylesheet" href="/css/home.css">
+<style>
+    #profile-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        vertical-align: middle;
+        border-radius: 50%;
+    }
+</style>
 <nav>
     <h2 class="logo">Mech<span>NearMe</span></h2>
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/howitworks">How It Works</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/login" class="login-btn">Login</a></li>
+        <% if (locals.user){ %>
+
+                <li><a href="/dashboard" class="login-btn">Dashboard</a></li>
+                <li><a href="/profile" ><img id="profile-icon" src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small/profile-icon-design-free-vector.jpg"> </a></li>
+                 
+        <% } else {%>
+            <li><a href="/login" class="login-btn">Login</a></li>
+        <% } %>
     </ul>
 </nav>
+

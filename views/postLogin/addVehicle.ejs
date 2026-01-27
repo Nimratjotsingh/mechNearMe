@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Vehicle | MechNearMe</title>
+    <link rel="stylesheet" href="/css/addVehicle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<%- include('../common/navbar.ejs') %>
+
+<section class="add-vehicle-wrapper">
+    <form class="vehicle-form" action="/add-vehicle" method="POST">
+
+        <h1>Add Your Vehicle</h1>
+        <p class="subtitle">
+            Enter your vehicle details to enable faster service and emergency support.
+        </p>
+
+        <!-- VEHICLE NUMBER -->
+        <div class="form-group">
+            <label>Vehicle Number <span>*</span></label>
+            <input 
+                type="text" 
+                name="vehicleNumber" 
+                placeholder="PB10 AB 1234" 
+                required>
+        </div>
+
+        <!-- VEHICLE TYPE -->
+        <div class="form-group">
+            <label>Vehicle Type <span>*</span></label>
+            <select name="vehicleType" required>
+                <option value="">Select vehicle type</option>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+            </select>
+        </div>
+
+        <!-- BRAND & MODEL -->
+        <div class="grid">
+            <div class="form-group">
+                <label>Brand <span>*</span></label>
+                <input 
+                    type="text" 
+                    name="brand" 
+                    placeholder="Hyundai" 
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label>Model <span>*</span></label>
+                <input 
+                    type="text" 
+                    name="model" 
+                    placeholder="i20" 
+                    required>
+            </div>
+        </div>
+
+        <!-- YEAR -->
+        <div class="form-group">
+            <label>Year of Manufacture <span>*</span></label>
+            <input 
+                type="number" 
+                name="year" 
+                min="1990" 
+                max="2026" 
+                placeholder="2021"
+                required>
+        </div>
+
+        <!-- OPTIONAL DETAILS -->
+        <div class="grid">
+            <div class="form-group">
+                <label>Fuel Type</label>
+                <select name="fuelType">
+                    <option value="">Select fuel type</option>
+                    <option value="petrol">Petrol</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="electric">Electric</option>
+                    <option value="cng">CNG</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nickname (Optional)</label>
+                <input 
+                    type="text" 
+                    name="nickname" 
+                    placeholder="My Office Car">
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Save Vehicle
+        </button>
+
+    </form>
+</section>
+
+</body>
+</html>

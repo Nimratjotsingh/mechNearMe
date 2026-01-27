@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | MechNearMe</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<%- include('../common/navbar.ejs') %>
+
+<section class="profile-wrapper">
+
+    <!-- PROFILE CARD -->
+    <div class="profile-card">
+
+        <!-- AVATAR -->
+        <div class="avatar">
+            <%= user.name.charAt(0).toUpperCase() %>
+        </div>
+
+        <h2><%= user.name %></h2>
+        <p class="email"><%= user.email %></p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Phone</span>
+                <p><%= user.phone || 'Not provided' %></p>
+            </div>
+
+            <div class="info-item">
+                <span>Account Status</span>
+                <p class="active">Active</p>
+            </div>
+
+            <div class="info-item">
+                <span>Member Since</span>
+                <p>Recently Joined</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button disabled>Edit Profile</button>
+            <button disabled class="secondary">Change Password</button>
+        </div>
+
+    </div>
+
+    <!-- VEHICLE SUMMARY -->
+    <div class="vehicle-summary">
+        <h3>Your Vehicles</h3>
+
+        <p class="placeholder">
+            Vehicle management will appear here once you add vehicles.
+        </p>
+
+        <a href="/add-vehicle" class="add-btn">➕ Add Vehicle</a>
+    </div>
+
+</section>
+
+</body>
+</html>

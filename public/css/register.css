@@ -38,42 +38,42 @@ nav a {
     color: #38bdf8;
 }
 
-/* LOGIN */
-.login-container {
+/* REGISTER */
+.register-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
 }
 
-.login-box {
-    background: rgba(255,255,255,0.05);
+.register-box {
+    background: rgba(255,255,255,0.06);
     padding: 40px;
-    width: 380px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(56,189,248,0.15);
-    animation: fadeIn 1s ease;
+    width: 420px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 45px rgba(56,189,248,0.18);
+    animation: slideUp 0.9s ease;
 }
 
-.login-box h1 {
+.register-box h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.login-box p {
+.register-box p {
     text-align: center;
     margin-bottom: 30px;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .input-group label {
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .input-group input {
@@ -91,7 +91,22 @@ nav a {
     color: #94a3b8;
 }
 
-.login-btn {
+/* TERMS */
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.terms a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* BUTTON */
+.register-btn {
     width: 100%;
     padding: 14px;
     background: #38bdf8;
@@ -99,18 +114,17 @@ nav a {
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-.login-links {
+/* LOGIN REDIRECT */
+.login-redirect {
+    text-align: center;
     margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+    font-size: 14px;
 }
 
-.login-links a {
+.login-redirect a {
     color: #38bdf8;
-    font-size: 14px;
     text-decoration: none;
 }
 
@@ -157,8 +171,13 @@ footer {
 }
 
 /* ANIMATION */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
- 
