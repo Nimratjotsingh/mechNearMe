@@ -9,7 +9,8 @@ const vehicleSchema = new mongoose.Schema({
         type: String,
         required: true,
         uppercase: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     vehicleType: {
         type: String,

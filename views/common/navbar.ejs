@@ -8,13 +8,17 @@
         vertical-align: middle;
         border-radius: 50%;
     }
+    .nav-btns:hover{
+        border-radius: 0px;
+        background-color: brown;
+    }
 </style>
 <nav>
     <h2 class="logo">Mech<span>NearMe</span></h2>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/howitworks">How It Works</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a class="nav-btns" href="/">Home</a></li>
+        <li><a class="nav-btns" href="/howitworks">How It Works</a></li>
+        <li><a class="nav-btns" href="/about">About</a></li>
         <% if (locals.user){ %>
 
                 <li><a href="/dashboard" class="login-btn">Dashboard</a></li>

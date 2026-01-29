@@ -22,7 +22,7 @@
         <div class="card">
             <h3>➕ Add Vehicle</h3>
             <p>Save your car or bike for easy service access</p>
-            <button disabled>Coming Soon</button>
+            <a href="/add-vehicle"><button>Continue</button></a> 
         </div>
 
         <div class="card">
@@ -39,10 +39,49 @@
     </div>
 
     <!-- VEHICLE SECTION -->
-    <div class="vehicles">
-        <h2>Your Vehicles</h2>
+    <!-- VEHICLE SECTION -->
+<div class="vehicles">
+    <h2>Your Vehicles</h2>
+
+    <% if (!vehicles || vehicles.length === 0) { %>
         <p class="empty-state">You haven’t added any vehicles yet.</p>
-    </div>
+    <% } else { %>
+
+        <div class="vehicle-grid">
+            <% vehicles.forEach(vehicle => { 
+                const carImages = ['https://png.pngtree.com/png-vector/20231014/ourlarge/pngtree-generic-brandless-sports-car-front-png-image_10239859.png', 'https://t3.ftcdn.net/jpg/00/79/71/36/360_F_79713649_GqVb9ZF7lj2JU2SO7BC2f1aZuvJ2GeiM.jpg'];
+                const bikeImages = ['/images/vehicles/bike1.png', '/images/vehicles/bike2.png'];
+
+                const images = vehicle.vehicleType === 'bike' ? bikeImages : carImages;
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+            %>
+
+                <div class="vehicle-card">
+                    <img src="<%= randomImage %>" alt="vehicle">
+
+                    <div class="vehicle-info">
+                        <h3><%= vehicle.brand %> <%= vehicle.model %></h3>
+                        <p class="number"><%= vehicle.vehicleNumber %></p>
+
+                        <div class="meta">
+                            <span><%= vehicle.vehicleType.toUpperCase() %></span>
+                            <span><%= vehicle.year %></span>
+                        </div>
+
+                        <div class="actions">
+                            <button class="repair">Request Repair</button>
+                            <button class="service">Schedule Service</button>
+                            <button class="delete">Delete Vehicle</button>
+                        </div>
+                    </div>
+                </div>
+
+            <% }) %>
+        </div>
+
+    <% } %>
+</div>
+
 
 </section>
 

@@ -45,19 +45,54 @@
             <button disabled>Edit Profile</button>
             <button disabled class="secondary">Change Password</button>
         </div>
+        <a href="/logout"> <button class="logout">Logout</button></a>
 
     </div>
 
     <!-- VEHICLE SUMMARY -->
-    <div class="vehicle-summary">
-        <h3>Your Vehicles</h3>
+    <!-- VEHICLE SUMMARY -->
+<div class="vehicle-summary">
+    <h3>Your Vehicles</h3>
 
+    <% if (!vehicles || vehicles.length === 0) { %>
         <p class="placeholder">
             Vehicle management will appear here once you add vehicles.
         </p>
 
         <a href="/add-vehicle" class="add-btn">➕ Add Vehicle</a>
-    </div>
+
+    <% } else { %>
+
+        <div class="vehicle-grid">
+            <% vehicles.forEach(vehicle => {
+                const carImages = ['https://png.pngtree.com/png-vector/20231014/ourlarge/pngtree-generic-brandless-sports-car-front-png-image_10239859.png', 'https://t3.ftcdn.net/jpg/00/79/71/36/360_F_79713649_GqVb9ZF7lj2JU2SO7BC2f1aZuvJ2GeiM.jpg'];
+                const bikeImages = ['https://pngfre.com/wp-content/uploads/bike-png-from-pngfre-36.png', 'https://static.vecteezy.com/system/resources/thumbnails/045/871/378/small/black-motorbike-on-transparent-background-free-png.png'];
+
+                const images = vehicle.vehicleType === 'bike' ? bikeImages : carImages;
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+            %>
+
+                <div class="vehicle-card">
+                    <img src="<%= randomImage %>" alt="vehicle">
+
+                    <div class="vehicle-info">
+                        <h4><%= vehicle.brand %> <%= vehicle.model %></h4>
+                        <p class="number"><%= vehicle.vehicleNumber %></p>
+
+                        <div class="meta">
+                            <span><%= vehicle.vehicleType.toUpperCase() %></span>
+                            <span><%= vehicle.year %></span>
+                        </div>
+                    </div>
+                </div>
+
+            <% }) %>
+        </div>
+
+        <a href="/add-vehicle" class="add-btn">➕ Add Another Vehicle</a>
+
+    <% } %>
+</div>
 
 </section>
 
