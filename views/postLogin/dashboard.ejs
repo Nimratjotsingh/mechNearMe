@@ -8,58 +8,68 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
 <%- include('../common/navbar.ejs') %>
 
-<!-- DASHBOARD CONTAINER -->
 <section class="dashboard">
 
-    <h1>Welcome, <%= user.name %> 👋</h1>
-    <p class="subtitle">Manage your vehicles and get instant help when needed</p>
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <h1>Welcome, <%= user.name %> 👋</h1>
+        <p class="subtitle">Manage your vehicles and get instant help when needed</p>
+    </div>
 
     <!-- QUICK ACTIONS -->
     <div class="quick-actions">
-        <div class="card">
+        <div class="card highlight">
             <h3>➕ Add Vehicle</h3>
-            <p>Save your car or bike for easy service access</p>
-            <a href="/add-vehicle"><button>Continue</button></a> 
+            <p>Save your vehicle for faster service access</p>
+            <a href="/add-vehicle" class="primary-btn">Add Vehicle</a>
         </div>
 
-        <div class="card">
+        <div class="card muted">
             <h3>🔧 Request Repair</h3>
             <p>Breakdown? Get mechanic help instantly</p>
             <button disabled>Coming Soon</button>
         </div>
 
-        <div class="card">
+        <div class="card muted">
             <h3>🛠️ Schedule Service</h3>
             <p>Plan regular servicing for your vehicle</p>
             <button disabled>Coming Soon</button>
         </div>
     </div>
 
-    <!-- VEHICLE SECTION -->
-    <!-- VEHICLE SECTION -->
-<div class="vehicles">
-    <h2>Your Vehicles</h2>
+    <!-- VEHICLES -->
+    <div class="vehicles">
+        <h2>Your Vehicles</h2>
 
-    <% if (!vehicles || vehicles.length === 0) { %>
-        <p class="empty-state">You haven’t added any vehicles yet.</p>
-    <% } else { %>
+        <% if (!vehicles || vehicles.length === 0) { %>
+            <p class="empty-state">You haven’t added any vehicles yet.</p>
+        <% } else { %>
 
-        <div class="vehicle-grid">
-            <% vehicles.forEach(vehicle => { 
-                const carImages = ['https://png.pngtree.com/png-vector/20231014/ourlarge/pngtree-generic-brandless-sports-car-front-png-image_10239859.png', 'https://t3.ftcdn.net/jpg/00/79/71/36/360_F_79713649_GqVb9ZF7lj2JU2SO7BC2f1aZuvJ2GeiM.jpg'];
-                const bikeImages = ['/images/vehicles/bike1.png', '/images/vehicles/bike2.png'];
-
-                const images = vehicle.vehicleType === 'bike' ? bikeImages : carImages;
-                const randomImage = images[Math.floor(Math.random() * images.length)];
-            %>
+            <div class="vehicle-grid">
+                <% vehicles.forEach(vehicle => { 
+                    const carImages = [
+                        'https://png.pngtree.com/png-vector/20231014/ourlarge/pngtree-generic-brandless-sports-car-front-png-image_10239859.png',
+                        'https://t3.ftcdn.net/jpg/00/79/71/36/360_F_79713649_GqVb9ZF7lj2JU2SO7BC2f1aZuvJ2GeiM.jpg'
+                    ];
+                    const bikeImages = [
+                        'https://pngfre.com/wp-content/uploads/bike-png-from-pngfre-36.png',
+                        'https://static.vecteezy.com/system/resources/thumbnails/045/871/378/small/black-motorbike-on-transparent-background-free-png.png'
+                    ];
+                    const images = vehicle.vehicleType === 'bike' ? bikeImages : carImages;
+                    const randomImage = images[Math.floor(Math.random() * images.length)];
+                %>
 
                 <div class="vehicle-card">
                     <img src="<%= randomImage %>" alt="vehicle">
 
                     <div class="vehicle-info">
+
+                        <% if (vehicle.nickname) { %>
+                            <span class="nickname"><%= vehicle.nickname %></span>
+                        <% } %>
+
                         <h3><%= vehicle.brand %> <%= vehicle.model %></h3>
                         <p class="number"><%= vehicle.vehicleNumber %></p>
 
@@ -69,19 +79,21 @@
                         </div>
 
                         <div class="actions">
-                            <button class="repair">Request Repair</button>
-                            <button class="service">Schedule Service</button>
-                            <button class="delete">Delete Vehicle</button>
+                            <a href="/repair/<%=vehicle._id%>"> <button class="repair">Repair</button> </a>
+                            <button class="service">Service</button>
+
+                            <form action="/delete/<%= vehicle._id %>" >
+                                <button class="delete">Remove</button>
+                            </form>
                         </div>
                     </div>
                 </div>
 
-            <% }) %>
-        </div>
+                <% }) %>
+            </div>
 
-    <% } %>
-</div>
-
+        <% } %>
+    </div>
 
 </section>
 

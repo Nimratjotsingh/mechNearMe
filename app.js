@@ -24,6 +24,7 @@ app.use(require('./routes/normalpage.routes'));
 app.use(require('./routes/postLogin.routes'));
 
 app.use(require('./routes/auth.routes'));
+app.use(require('./routes/vehicleActivities.routes'));
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
