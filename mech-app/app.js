@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 4000;
+require('./db');
+
 
 app.set('view engine','ejs');
 app.use(express.static('public'));

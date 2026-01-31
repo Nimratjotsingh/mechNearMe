@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mechanic Registration | MechNearMe</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h2 class="logo">Mech<span>NearMe</span></h2>
+        <a href="/" class="back-link">← Back</a>
+    </header>
+
+    <!-- REGISTER FORM -->
+    <section class="auth-wrapper">
+        <form class="auth-card" action="/register" method="POST">
+
+            <h1>Join as a Mechanic</h1>
+            <p class="subtitle">
+                Create your mechanic account to start receiving nearby service requests.
+            </p>
+
+            <!-- NAME -->
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your full name"
+                    required>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@workshop.com"
+                    required>
+            </div>
+
+            <!-- PHONE -->
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="10-digit mobile number"
+                    required>
+            </div>
+
+            <!-- WORKSHOP NAME -->
+            <div class="form-group">
+                <label>Workshop Name</label>
+                <input
+                    type="text"
+                    name="workshopName"
+                    placeholder="Optional">
+            </div>
+            <!-- SHOP TYPE -->
+            <div class="form-group">
+                <label>Repair Shop Type</label>
+                <select name="shopType" required>
+                    <option value="">Select your service type</option>
+                    <option value="car">Car Repair</option>
+                    <option value="bike">Bike Repair</option>
+                    <option value="both">Car & Bike Repair</option>
+                </select>
+            </div>
+            <!-- EXPERIENCE -->
+            <div class="form-group">
+                <label>Years of Experience</label>
+                <input
+                    type="number"
+                    name="experience"
+                    placeholder="e.g. 5"
+                    min="0"
+                    max="60"
+                    required>
+            </div>
+
+            <!-- AADHAAR -->
+            <div class="form-group">
+                <label>Aadhaar Number</label>
+                <input
+                    type="text"
+                    name="aadhaar"
+                    placeholder="12-digit Aadhaar number"
+                    maxlength="12"
+                    pattern="[0-9]{12}"
+                    required>
+            </div>
+            <!-- LOCATION -->
+            <div class="form-group">
+                <label>Workshop Location</label>
+                <input
+                    type="text"
+                    name="area"
+                    placeholder="Area / Locality (e.g. Sector 22, Andheri East)"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="City (e.g. Delhi, Mumbai)"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <input
+                    type="text"
+                    name="state"
+                    placeholder="State (e.g. Punjab, Maharashtra)"
+                    required>
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Create a strong password"
+                    required>
+            </div>
+
+            <button type="submit" class="btn primary full">
+                Create Account
+            </button>
+
+            <p class="footer-text">
+                Already registered?
+                <a href="/login">Login here</a>
+            </p>
+
+        </form>
+    </section>
+
+</div>
+
+</body>
+</html>
