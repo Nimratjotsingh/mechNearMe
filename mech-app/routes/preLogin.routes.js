@@ -7,4 +7,7 @@ router.get('/',controller.home);
 router.get('/login',authController.login);
 router.get('/register',authController.register);
 
+//post request
+router.post('/register',authController.registerReq);
+router.post('/login',authController.loginReq);
 module.exports = router;
