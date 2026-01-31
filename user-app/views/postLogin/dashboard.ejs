@@ -80,7 +80,7 @@
 
                         <div class="actions">
                             <a href="/repair/<%=vehicle._id%>"> <button class="repair">Repair</button> </a>
-                            <button class="service">Service</button>
+                            <a href="/service/<%=vehicle._id%>"><button class="service">Service</button></a>
 
                             <form action="/delete/<%= vehicle._id %>" >
                                 <button class="delete">Remove</button>

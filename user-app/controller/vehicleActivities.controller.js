@@ -42,4 +42,9 @@ exports.addVehicle = async (req, res) => {
 
 exports.repair = async(req,res)=>{
     const vehicleId = req.params.id;
+    res.send('Currently under development');
+}
+exports.service = async(req,res)=>{
+    const vehicleId = req.params.id;
+    res.send('Currently under development');
 }
