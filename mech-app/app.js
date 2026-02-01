@@ -17,6 +17,8 @@ app.use(session({
 
 //Routes
 app.use(require('./routes/preLogin.routes'));
+app.use(require('./routes/postLogin.routes'));
+
 
 app.listen(port,()=>{
     console.log('Mechanic app is working');

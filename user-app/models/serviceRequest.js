@@ -22,6 +22,11 @@ const serviceRequestSchema = new mongoose.Schema({
         enum: ['pending', 'in-progress', 'completed', 'cancelled'],
         default: 'pending'
     },
+    rejectedBy: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Mechanic'
+    }],
+
     createdAt: {
         type: Date,
         default: Date.now

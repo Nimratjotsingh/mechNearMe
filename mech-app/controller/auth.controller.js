@@ -2,7 +2,7 @@ const mech = require('../models/mech');
 const bcrypt = require('bcrypt');
 
 exports.login = (req,res)=>{
-    res.render('login.ejs')
+    res.render('authPages/login.ejs')
 }
 
 exports.register = (req,res)=>{
@@ -39,7 +39,7 @@ exports.registerReq = async (req,res)=>{
             email: savedMechanic.email,
             phone: savedMechanic.phone
         }
-        res.send('User created successfull')
+        res.redirect('/dashboard')
     }catch(e){
         res.send(e);
         console.log(e);
@@ -63,9 +63,18 @@ exports.loginReq = async (req,res)=>{
             email: mechanic.email,
             phone: mechanic.phone
         }
-        res.send('User logged in Successfully!');
+        res.redirect('/dashboard');
     }catch(e){
         res.send(e);
         console.log(e)
     }
+}
+
+exports.logout = (req,res)=>{
+    req.session.destroy((err)=>{
+        if(err){
+            return res.send('Error logging out');
+        }
+        res.redirect('/login');
+    });
 }
