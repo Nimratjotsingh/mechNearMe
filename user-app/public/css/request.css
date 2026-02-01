@@ -1,0 +1,136 @@
+/* ===============================
+   BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #020617;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===============================
+   PAGE
+================================ */
+.request-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* ===============================
+   CARD
+================================ */
+.request-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255,255,255,0.06);
+    padding: 32px 28px;
+    border-radius: 24px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+}
+
+.request-card h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-bottom: 24px;
+}
+
+/* ===============================
+   FORM
+================================ */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+    opacity: 0.8;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+select option {
+    color: #020617;
+}
+
+textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+/* ===============================
+   RADIO GROUP
+================================ */
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.btn {
+    padding: 12px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn.primary {
+    background: #38bdf8;
+    color: #020617;
+}
+
+.btn.full {
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 400px) {
+    .request-card {
+        padding: 26px 22px;
+    }
+
+    .request-card h1 {
+        font-size: 22px;
+    }
+}

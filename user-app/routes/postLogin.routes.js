@@ -12,7 +12,9 @@ router.get('/add-vehicle',isLoggedIn,(req,res)=>{
     res.render('postLogin/addVehicle.ejs',{user:req.session.user});
 });
 
+router.get('/service',isLoggedIn,postLogin.service)
 
+router.get('/service/history', isLoggedIn, postLogin.requestHistory);
 
 
 module.exports = router;

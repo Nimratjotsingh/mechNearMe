@@ -1,5 +1,6 @@
 const Vehicle = require('../models/vehicle');
 const User = require('../models/user');
+const ServiceRequest = require('../models/serviceRequest');
 
 exports.deleteVehicle = async (req,res)=>{
     const vehicleId = req.params.id;
@@ -41,10 +42,53 @@ exports.addVehicle = async (req, res) => {
 }
 
 exports.repair = async(req,res)=>{
-    const vehicleId = req.params.id;
-    res.send('Currently under development');
+   const vehicleId = req.params.id;
+
+    const vehicle = await Vehicle.findById(vehicleId);
+
+    if (!vehicle) {
+        return res.redirect('/dashboard');
+    }
+
+    res.render('service/vehicle-request.ejs', {
+        user: req.session.user,
+        vehicle
+    });
 }
 exports.service = async(req,res)=>{
     const vehicleId = req.params.id;
-    res.send('Currently under development');
+
+    const vehicle = await Vehicle.findById(vehicleId);
+
+    if (!vehicle) {
+        return res.redirect('/dashboard');
+    }
+
+    res.render('service/vehicle-request.ejs', {
+        user: req.session.user,
+        vehicle
+    });
+}
+
+exports.createServiceRequest = async (req,res)=>{
+    try {
+        const { vehicleId, requestType, issueDescription } = req.body;
+
+        if (!vehicleId || !requestType) {
+            return res.status(400).send("Missing required fields");
+        }
+
+        await ServiceRequest.create({
+            user: req.session.user.id,
+            vehicle: vehicleId,
+            requestType,
+            issueDescription
+        });
+
+        res.redirect('/dashboard');
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Failed to create service request");
+    }
 }

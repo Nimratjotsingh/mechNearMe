@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service History | MechNearMe</title>
+    <link rel="stylesheet" href="/css/history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<%- include('../common/navbar.ejs') %>
+
+<section class="history-page">
+
+    <h1>Your Service Requests</h1>
+    <p class="subtitle">Track all your past and active service requests</p>
+
+    <% if (!requests || requests.length === 0) { %>
+        <p class="empty">You haven’t made any service requests yet.</p>
+    <% } else { %>
+
+        <div class="history-list">
+            <% requests.forEach(req => { %>
+                <div class="history-card">
+
+                    <div class="top">
+                        <h3><%= req.requestType.toUpperCase() %></h3>
+                        <span class="status <%= req.status %>">
+                            <%= req.status.replace('-', ' ') %>
+                        </span>
+                    </div>
+
+                    <p class="vehicle">
+                        <strong>Vehicle:</strong>
+                        <%= req.vehicle.brand %> <%= req.vehicle.model %>
+                        (<%= req.vehicle.vehicleNumber %>)
+                    </p>
+
+                    <% if (req.issueDescription) { %>
+                        <p class="issue">
+                            <strong>Issue:</strong> <%= req.issueDescription %>
+                        </p>
+                    <% } %>
+
+                    <p class="date">
+                        Requested on <%= req.createdAt.toDateString() %>
+                    </p>
+
+                </div>
+            <% }) %>
+        </div>
+
+    <% } %>
+
+</section>
+
+</body>
+</html>
