@@ -15,58 +15,77 @@
         <h2 class="logo">Mech<span>NearMe</span></h2>
 
         <div class="profile">
+            <a href="/jobs/history"><button>📜</button></a>
             <span class="status online"></span>
-            <span class="name"><%= mechanic.name %></span>
+            <span class="name"><%= user.name %></span>
             <a href="/logout" class="logout">Logout</a>
         </div>
     </header>
 
-    <!-- DASHBOARD CONTENT -->
+    <!-- DASHBOARD -->
     <main class="dashboard">
 
-        <!-- STATS -->
-        <section class="stats">
-            <div class="stat-card">
-                <h3>Available Jobs</h3>
-                <p>3</p>
+        <h1 class="heading">Available Service Requests</h1>
+        <p class="subheading">
+            Accept a request to start working
+        </p>
+
+        <% if (!jobs || jobs.length === 0) { %>
+            <div class="empty">
+                No service requests available right now.
+            </div>
+        <% } else { %>
+
+            <div class="job-list">
+                <% jobs.forEach(job => { %>
+
+                    <div class="job-card">
+
+                        <div class="job-info">
+                            <h3><%= job.requestType.toUpperCase() %></h3>
+
+                            <p>
+                                <strong>Vehicle:</strong>
+                                <%= job.vehicle.brand %> <%= job.vehicle.model %>
+                            </p>
+
+                            <p class="muted">
+                                <%= job.vehicle.vehicleNumber %> • <%= job.vehicle.vehicleType %>
+                            </p>
+
+                            <% if (job.issueDescription) { %>
+                                <p class="issue">
+                                    <strong>Issue:</strong> <%= job.issueDescription %>
+                                </p>
+                            <% } %>
+
+                            <p class="muted">
+                                Requested by <%= job.user.name %>
+                            </p>
+                        </div>
+
+                        <div class="job-actions">
+
+                            <form action="/jobs/accept/<%= job._id %>" method="POST">
+                                <button class="accept">Accept</button>
+                            </form>
+
+                            <form action="/jobs/reject/<%= job._id %>" method="POST">
+                                <button class="reject">Reject</button>
+                            </form>
+
+                            <a href="/jobs/<%= job._id %>" class="view">
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
             </div>
 
-            <div class="stat-card">
-                <h3>Active Jobs</h3>
-                <p>1</p>
-            </div>
-
-            <div class="stat-card">
-                <h3>Completed</h3>
-                <p>12</p>
-            </div>
-        </section>
-
-        <!-- JOB REQUESTS -->
-        <section class="jobs">
-            <h2>Incoming Service Requests</h2>
-
-            <!-- JOB CARD -->
-            <div class="job-card">
-                <div class="job-info">
-                    <h3>Car Repair</h3>
-                    <p><strong>Vehicle:</strong> Hyundai i20</p>
-                    <p><strong>Issue:</strong> Engine overheating</p>
-                    <p><strong>Location:</strong> <%= mechanic.location %></p>
-                </div>
-
-                <div class="job-actions">
-                    <button class="accept">Accept</button>
-                    <button class="reject">Reject</button>
-                </div>
-            </div>
-
-            <!-- EMPTY STATE (later dynamic) -->
-            <!--
-            <p class="empty">No new requests right now</p>
-            -->
-
-        </section>
+        <% } %>
 
     </main>
 

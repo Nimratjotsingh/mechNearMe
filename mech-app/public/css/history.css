@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #020617;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* PAGE */
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOP BAR */
+.topbar {
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.name {
+    font-size: 14px;
+}
+
+.back {
+    font-size: 13px;
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* CONTENT */
+.content {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.content h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 24px;
+}
+
+/* EMPTY */
+.empty {
+    padding: 30px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 18px;
+    opacity: 0.7;
+}
+
+/* LIST */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* CARD */
+.history-card {
+    background: rgba(255,255,255,0.06);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.top h3 {
+    font-size: 15px;
+}
+
+/* STATUS */
+.status {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status.completed {
+    background: rgba(34,197,94,0.2);
+    color: #22c55e;
+}
+
+.status.cancelled {
+    background: rgba(239,68,68,0.2);
+    color: #ef4444;
+}
+
+.muted {
+    font-size: 12px;
+    opacity: 0.65;
+}
+
+.issue {
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.date {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .content {
+        padding: 50px 40px;
+    }
+}

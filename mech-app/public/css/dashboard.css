@@ -1,6 +1,6 @@
-/* =============================
-   BASE
-============================= */
+/* =========================
+   RESET & BASE
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -11,21 +11,21 @@ html, body {
     width: 100%;
     font-family: 'Poppins', sans-serif;
     background: #020617;
-    color: #fff;
+    color: #ffffff;
 }
 
-/* =============================
+/* =========================
    PAGE
-============================= */
+========================= */
 .page {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* =============================
+/* =========================
    TOP BAR
-============================= */
+========================= */
 .topbar {
     padding: 18px 24px;
     display: flex;
@@ -47,7 +47,7 @@ html, body {
 .profile {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-size: 14px;
 }
 
@@ -64,108 +64,150 @@ html, body {
 .logout {
     color: #38bdf8;
     text-decoration: none;
+    font-size: 13px;
 }
 
-/* =============================
+/* =========================
    DASHBOARD
-============================= */
+========================= */
 .dashboard {
     padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
 }
 
-/* =============================
-   STATS
-============================= */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-}
-
-.stat-card {
-    background: rgba(255,255,255,0.06);
-    padding: 18px;
-    border-radius: 18px;
-}
-
-.stat-card h3 {
-    font-size: 13px;
-    opacity: 0.8;
+.heading {
+    font-size: 24px;
     margin-bottom: 6px;
 }
 
-.stat-card p {
-    font-size: 26px;
-    font-weight: 700;
+.subheading {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 24px;
 }
 
-/* =============================
-   JOBS
-============================= */
-.jobs h2 {
-    margin-bottom: 16px;
+/* =========================
+   EMPTY STATE
+========================= */
+.empty {
+    padding: 30px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 18px;
+    opacity: 0.7;
+    font-style: italic;
 }
 
-.job-card {
-    background: rgba(255,255,255,0.07);
-    padding: 20px;
-    border-radius: 22px;
+/* =========================
+   JOB LIST
+========================= */
+.job-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
 }
 
+/* =========================
+   JOB CARD
+========================= */
+.job-card {
+    background: rgba(255,255,255,0.06);
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: transform 0.25s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   JOB INFO
+========================= */
 .job-info h3 {
+    font-size: 16px;
     margin-bottom: 6px;
 }
 
 .job-info p {
     font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.muted {
+    font-size: 12px;
+    opacity: 0.65;
+}
+
+.issue {
+    margin-top: 6px;
+    font-size: 13px;
     opacity: 0.85;
 }
 
-/* =============================
-   JOB ACTIONS
-============================= */
+/* =========================
+   ACTIONS
+========================= */
 .job-actions {
     display: flex;
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.job-actions form {
+    width: 100%;
 }
 
 .job-actions button {
-    flex: 1;
+    width: 100%;
     padding: 12px;
     border-radius: 22px;
     border: none;
     font-weight: 600;
-    cursor: pointer;
     font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
+/* ACCEPT */
 .accept {
     background: #22c55e;
-    color: #fff;
+    color: #ffffff;
 }
 
+.accept:hover {
+    background: #16a34a;
+}
+
+/* REJECT */
 .reject {
-    background: rgba(239,68,68,0.2);
+    background: rgba(239,68,68,0.15);
     color: #ef4444;
 }
 
-/* =============================
-   EMPTY STATE
-============================= */
-.empty {
-    opacity: 0.6;
-    font-style: italic;
+.reject:hover {
+    background: rgba(239,68,68,0.25);
 }
 
-/* =============================
-   TABLET+
-============================= */
+/* VIEW DETAILS */
+.view {
+    text-align: center;
+    padding: 10px;
+    border-radius: 22px;
+    border: 1px solid rgba(56,189,248,0.4);
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =========================
+   TABLET & DESKTOP
+========================= */
 @media (min-width: 768px) {
 
     .dashboard {
@@ -178,8 +220,11 @@ html, body {
         align-items: center;
     }
 
+    .job-info {
+        max-width: 65%;
+    }
+
     .job-actions {
-        flex-direction: column;
-        min-width: 140px;
+        min-width: 180px;
     }
 }

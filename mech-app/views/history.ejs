@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job History | MechNearMe</title>
+    <link rel="stylesheet" href="/css/history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+        <h2 class="logo">Mech<span>NearMe</span></h2>
+        <div class="right">
+            <span class="name"><%= user.name %></span>
+            <a href="/dashboard" class="back">← Dashboard</a>
+        </div>
+    </header>
+
+    <main class="content">
+
+        <h1>Job History</h1>
+        <p class="subtitle">Completed and cancelled jobs</p>
+
+        <% if (!jobs || jobs.length === 0) { %>
+            <div class="empty">
+                You don’t have any past jobs yet.
+            </div>
+        <% } else { %>
+
+            <div class="history-list">
+                <% jobs.forEach(job => { %>
+
+                    <div class="history-card">
+
+                        <div class="top">
+                            <h3><%= job.requestType.toUpperCase() %></h3>
+                            <span class="status <%= job.status %>">
+                                <%= job.status %>
+                            </span>
+                        </div>
+
+                        <p>
+                            <strong>Vehicle:</strong>
+                            <%= job.vehicle.brand %> <%= job.vehicle.model %>
+                        </p>
+
+                        <p class="muted">
+                            <%= job.vehicle.vehicleNumber %> •
+                            <%= job.vehicle.vehicleType %>
+                        </p>
+
+                        <% if (job.issueDescription) { %>
+                            <p class="issue">
+                                <strong>Issue:</strong> <%= job.issueDescription %>
+                            </p>
+                        <% } %>
+
+                        <p class="muted">
+                            Customer: <%= job.user.name %>
+                        </p>
+
+                        <p class="date">
+                            <%= job.createdAt.toDateString() %>
+                        </p>
+
+                    </div>
+
+                <% }) %>
+            </div>
+
+        <% } %>
+
+    </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Details | MechNearMe</title>
+    <link rel="stylesheet" href="/css/job-view.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+        <h2 class="logo">Mech<span>NearMe</span></h2>
+        <a href="/dashboard" class="back">← Back</a>
+    </header>
+
+    <main class="content">
+
+        <div class="card">
+
+            <h1>Service Request</h1>
+            <span class="status pending">Pending</span>
+
+            <!-- VEHICLE -->
+            <div class="section">
+                <h3>Vehicle Details</h3>
+                <p><strong>Vehicle:</strong> <%= job.vehicle.brand %> <%= job.vehicle.model %></p>
+                <p class="muted">
+                    <%= job.vehicle.vehicleNumber %> • 
+                    <%= job.vehicle.vehicleType %> • 
+                    <%= job.vehicle.year || 'N/A' %>
+                </p>
+            </div>
+
+            <!-- ISSUE -->
+            <div class="section">
+                <h3>Issue</h3>
+                <p>
+                    <%= job.issueDescription || 'No issue description provided.' %>
+                </p>
+            </div>
+
+            <!-- CUSTOMER -->
+            <div class="section">
+                <h3>Customer Details</h3>
+                <p><strong>Name:</strong> <%= job.user.name %></p>
+                <p class="muted"><strong>Email:</strong> <%= job.user.email %></p>
+                <% if (job.user.phone) { %>
+                    <p class="muted"><strong>Phone:</strong> <%= job.user.phone %></p>
+                <% } %>
+            </div>
+
+            <!-- META -->
+            <div class="section">
+                <h3>Request Info</h3>
+                <p class="muted">
+                    Type: <%= job.requestType.toUpperCase() %>
+                </p>
+                <p class="muted">
+                    Requested on <%= job.createdAt.toDateString() %>
+                </p>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="actions">
+                <form action="/jobs/accept/<%= job._id %>" method="POST">
+                    <button class="accept">Accept Job</button>
+                </form>
+
+                <form action="/jobs/reject/<%= job._id %>" method="POST">
+                    <button class="reject">Reject Job</button>
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
